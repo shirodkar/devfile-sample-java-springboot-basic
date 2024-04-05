@@ -11,12 +11,15 @@ import org.springframework.web.bind.annotation.RestController;
 @SpringBootApplication
 public class DemoApplication {
 
-    @Value( "${name}" )
+    @Value( "${greeting}" )
+    private String greeting;
+    
+    @Value( "${secret.name}" )
     private String name;
 
     @RequestMapping("/")
     String home() {
-        return "Hello, " + name + "!";
+        return greeting + ", " + name + "!";
     }
 
     public static void main(String[] args) {
